@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
 
-import './product-table.css';
 import ProductCategoryRow from "../product-category-row";
 import ProductRow from "../product-row";
 
-export default class ProductTable extends Component {
-    render() {
-        const rows = [];
-        let lastCategory = null;
+import './product-table.css';
 
-        this.props.products.forEach((product) => {
+export default class ProductTable extends Component {
+    constructor(props) {
+        super(props);
+
+        this.makeRows = this.makeRows.bind(this);
+    }
+
+    makeRows({ products, filterText, isStockChecked }) {
+        let lastCategory = null;
+        const rows = [];
+
+        products.forEach((product) => {
+            if (product.name.toLowerCase().indexOf(filterText) === -1) {
+                return null;
+            }
+
+            if (isStockChecked && !product.stocked) {
+                return null;
+            }
+
             if (product.category !== lastCategory) {
                 rows.push(
                     <ProductCategoryRow
@@ -24,8 +39,11 @@ export default class ProductTable extends Component {
                     product={product}
                     key={product.name} />
             );
-        })
+        });
+        return rows;
+    }
 
+    render() {
         return (
             <table>
                 <thead>
@@ -34,7 +52,7 @@ export default class ProductTable extends Component {
                     <th>Price</th>
                 </tr>
                 </thead>
-                <tbody>{rows}</tbody>
+                <tbody>{this.makeRows(this.props)}</tbody>
             </table>
         );
     }
