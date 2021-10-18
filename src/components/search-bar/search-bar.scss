@@ -1,0 +1,32 @@
+.SearchBar {
+  width: 100%;
+  overflow: hidden;
+  background: radial-gradient(#48cae4, #0096c7);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-shadow: 0 1px 2px gray;
+  &__text-input {
+    width: calc(100% - 24px);
+    height: 1.5rem;
+    padding: 0 5px;
+    margin: 12px;
+    border-radius: 2px;
+    border: none;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px #52b69a;
+    }
+  }
+  &__checkbox,
+  &__label {
+    margin-left: 12px;
+  }
+  &__checkbox {
+    border: none;
+  }
+  &__label {
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 15px;
+  }
+}

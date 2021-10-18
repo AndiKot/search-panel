@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 
-import './product-row.css'
+import './product-row.scss'
 
 export default class ProductRow extends Component {
     render() {
         const { product } = this.props;
         const name = product.stocked
-            ? product.name
-            : <span className="product-stock">{product.name}</span>;
+            ? <span className="product-stock">{product.name}</span>
+            : product.name;
 
         return (
-            <tr>
-                <td>
+            <tr className="ProductTable__row">
+                <td className="ProductTable__cell ProductTable--left">
                     {name}
                 </td>
-                <td>
+                <td className="ProductTable__cell ProductTable--right">
                     {product.price}
                 </td>
             </tr>

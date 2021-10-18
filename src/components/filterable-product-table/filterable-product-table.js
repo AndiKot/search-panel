@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SearchBar from "../search-bar";
 import ProductTable from "../product-table";
 
-import './filterable-product-table.css';
+import './filterable-product-table.scss';
 
 export default class FilterableProductTable extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ export default class FilterableProductTable extends Component {
 
     render() {
         return (
-            <div>
+            <div className="FilterableProductTable">
                 <SearchBar
                 onStockChecked={(isStockChecked) => this.setState({isStockChecked})}
                 onFilterText={(filterText) => this.setState({filterText})}
