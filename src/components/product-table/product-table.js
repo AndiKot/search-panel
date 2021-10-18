@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ProductCategoryRow from "../product-category-row";
 import ProductRow from "../product-row";
 
-import './product-table.css';
+import './product-table.scss';
 
 export default class ProductTable extends Component {
     constructor(props) {
@@ -28,6 +28,7 @@ export default class ProductTable extends Component {
             if (product.category !== lastCategory) {
                 rows.push(
                     <ProductCategoryRow
+                        className="ProductTable__product-category"
                         category={product.category}
                         key={product.category} />
                 );
@@ -45,11 +46,11 @@ export default class ProductTable extends Component {
 
     render() {
         return (
-            <table>
-                <thead>
+            <table className="ProductTable">
+                <thead className="ProductTable__table-header">
                 <tr>
-                    <th>Name</th>
-                    <th>Price</th>
+                    <th className="ProductTable--left">Name</th>
+                    <th className="ProductTable--right">Price</th>
                 </tr>
                 </thead>
                 <tbody>{this.makeRows(this.props)}</tbody>

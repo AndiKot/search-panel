@@ -1,0 +1,33 @@
+.ProductTable {
+  width: calc(100% - 24px);
+  margin: 12px;
+  box-shadow: 0 1px 3px 0 lightgray;
+  border-spacing: unset;
+  &__table-header{
+    background-color: #0096c7;
+  }
+  &__product-category {
+    background-color: #90e0ef;
+    border-radius: 5px;
+  }
+  &__row {
+    &:hover {
+      cursor: pointer;
+      background-color: #caf0f8;
+    }
+    .ProductTable__cell {
+      border-bottom: 1px solid lightgray;
+    }
+    &:nth-of-type(4n) .ProductTable__cell {
+      border-bottom: none;
+    }
+  }
+  &--left {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  &--right {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import './product-category-row.css';
+import './product-category-row.scss';
 
 export default class ProductCategoryRow extends Component {
     render() {
-        const { category } = this.props;
+        const { category, className } = this.props;
 
         return (
             <tr>
-                <th colSpan="2">
+                <th className={className}
+                    colSpan="2">
                     {category}
                 </th>
             </tr>

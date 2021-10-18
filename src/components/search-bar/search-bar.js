@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './search-bar.css';
+import './search-bar.scss';
 
 export default class SearchBar extends Component {
     constructor(props) {
@@ -21,19 +21,23 @@ export default class SearchBar extends Component {
     render() {
         const { filterText, isStockChecked } = this.props;
         return (
-            <form>
+            <form className="SearchBar">
                 <input
+                    className="SearchBar__text-input"
                     type="text"
                     placeholder="Search..."
                     value={filterText}
                     onChange={this.onFilterText} />
                 <p>
                     <input
+                        className="SearchBar__checkbox"
                         type="checkbox"
                         id="stock-checkbox"
                         checked={isStockChecked}
                         onClick={this.onToggleCheckbox} />
-                    <label htmlFor="stock-checkbox">
+                    <label
+                        className="SearchBar__label"
+                        htmlFor="stock-checkbox">
                         Only show products in stock.
                     </label>
                 </p>
